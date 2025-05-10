@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+	 <record id="product_material_form_view" model="ir.ui.view">
+	        <field name="name">product.material.form</field>
+	        <field name="model">product.material</field>
+	        <field name="mode">primary</field>
+	        <field name="arch" type="xml">
+	            <form string="Product Material">
+					<group>
+						<field name="material_code"/>
+	                    <field name="name"/>
+	                    <field name="material_type"/>
+	                </group>
+	                <group>
+	                    <field name="buy_price"/>
+	                    <field name="supplier"/>
+					</group>				
+				</form>
+	        </field>
+	    </record>
+ 
+        <record id="product_material_action" model="ir.actions.act_window">
+            <field name="name">Product Material</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.material</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/> <!-- Force empty -->
+        </record>
+        
+    	<record id="material_tree_view" model="ir.ui.view">
+           	<field name="name">material.tree.view</field>
+            <field name="model">product.material</field>
+            <field name="arch" type="xml">
+                <tree string="Product Packagings">
+                    <field name="material_code"/>
+                    <field name="name"/>
+                    <field name="material_type"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_product_material_search" model="ir.ui.view">
+            <field name="name">product.material.search</field>
+            <field name="model">product.material</field>
+            <field name="arch" type="xml">
+                <search string="Material Type">
+                    <separator/>
+                    <filter string="Jeans" name="Material Type" domain="[('material_type', 'ilike', 'jeans')]"/>
+                    <filter string="Fabric" name="Material Type" domain="[('material_type', 'ilike', 'fabric')]"/>
+                    <filter string="Cotton" name="Material Type" domain="[('material_type', 'ilike', 'cotton')]"/>
+                </search>
+            </field>
+        </record>
+        
+        <menuitem id="menu_product_material"
+            name="Product Material"
+            action="product_material_action"
+            sequence="2"/>            
+	
+    </data>
+</odoo>
+    
