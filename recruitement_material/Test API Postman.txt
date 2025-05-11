@@ -1,0 +1,39 @@
+For API Test from Postman
+
+[GET ALL Material]
+curl --location 'http://localhost:8088/api/product_material_get_all/' \
+--header 'bd9270b0a7824292af6135c8685f35e4d2c28658;' \
+--header 'Cookie: session_id=7e7858a66a944f7356648854dc03c946e592d6c8'
+
+[Filter Cotton type]
+curl --location 'http://localhost:8088/api/product_material_get_cotton/' \
+--header 'bd9270b0a7824292af6135c8685f35e4d2c28658;' \
+--header 'Cookie: session_id=7e7858a66a944f7356648854dc03c946e592d6c8' \
+--data ''
+
+[Filter Jeans Type]
+curl --location 'http://localhost:8088/api/product_material_get_jeans/' \
+--header 'bd9270b0a7824292af6135c8685f35e4d2c28658;' \
+--header 'Cookie: session_id=7e7858a66a944f7356648854dc03c946e592d6c8'
+
+[Filter Fabric Type]
+curl --location 'http://localhost:8088/api/product_material_get_fabric/' \
+--header 'bd9270b0a7824292af6135c8685f35e4d2c28658;' \
+--header 'Cookie: session_id=7e7858a66a944f7356648854dc03c946e592d6c8'
+
+[Delete baris data material]
+curl --location --request DELETE 'http://localhost:8088/api/product_material_delete/[ganti berdasarkan ID data]' \
+--header 'bd9270b0a7824292af6135c8685f35e4d2c28658;' \
+--header 'Cookie: session_id=7e7858a66a944f7356648854dc03c946e592d6c8'
+
+[Edit data material]
+curl --location --request PATCH 'http://localhost:8088/api/product_material_edit/9' \
+--header 'Content-Type: application/json' \
+--header 'bd9270b0a7824292af6135c8685f35e4d2c28658;' \
+--header 'Cookie: session_id=7e7858a66a944f7356648854dc03c946e592d6c8' \
+--data '{
+    "material_code": "test ganti 2",
+    "material_type": "jeans",
+    "name": "test ganti lagi",
+    "buy_price": 2555
+}'
